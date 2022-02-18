@@ -1,0 +1,33 @@
+.page-description {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .description-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--textColor1);
+    padding: 1rem;
+    max-width: 1000px;
+    h1 {
+      font-size: 3.8rem;
+      font-weight: bold;
+      text-align: center;
+      line-height: 3.5rem;
+      margin: 0.8rem;
+    }
+    h3 {
+      text-align: center;
+      font-size: 1rem;
+      font-weight: 500;
+      margin: 1rem;
+      color: var(--textColor2);
+    }
+
+    .social-media {
+      margin: 1rem;
+    }
+  }
+}

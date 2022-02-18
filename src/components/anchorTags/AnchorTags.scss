@@ -1,0 +1,11 @@
+.anchor,
+.anchor:visited {
+  color: var(--textColor2);
+  text-decoration: none;
+  margin: 1rem;
+  font-weight: bold;
+
+  &:hover {
+    color: var(--textColor1);
+  }
+}
