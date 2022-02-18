@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/tezosIndia/static/css/main.e804c48d.css",
+    "main.js": "/tezosIndia/static/js/main.10751b7e.js",
+    "static/media/light-hero.png": "/tezosIndia/static/media/light-hero.eec3ffd5b91f287bd6fe.png",
+    "index.html": "/tezosIndia/index.html",
+    "main.e804c48d.css.map": "/tezosIndia/static/css/main.e804c48d.css.map",
+    "main.10751b7e.js.map": "/tezosIndia/static/js/main.10751b7e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e804c48d.css",
+    "static/js/main.10751b7e.js"
+  ]
+}
