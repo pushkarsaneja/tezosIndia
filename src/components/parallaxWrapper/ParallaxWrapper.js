@@ -1,57 +1,140 @@
 import React, { useEffect, useState, useRef } from "react";
-import Header from "../header/Header";
+import Logo from "../logo/Logo";
 import "./parallaxWrapper.scss";
 
-// this component creates a page with parallax scrolling effect
+import {
+  useCurrentPage,
+  useSetCurrentPage,
+} from "../../contexts/CurrentPageProvider";
+import { IconButton, NavButton, SideNavButton } from "../buttons/Buttons";
+import ParallaxContent from "./ParallaxContent";
+// this component creates a page with parallax scrolling effect and header
 // pageDescription takes the component to be placed over the image
 // pageContent takes the component to be inserted after the image
 
-const ParallaxWrapper = ({ img, pageDescription, pageContent }) => {
-  const [isHidden, setIsHidden] = useState(false); //isHidden is being used to hide and unhide header
-  const [isTransparent, setIsTransparent] = useState(true); //isTransparent sets the background colour of header to transparent if true
-  const [isNavOpen, setIsNavOpen] = useState(false); // isNav is being used as a flag to enable and disable scolling when side menu is open
+const navLinks = [
+  "Home",
+  "Events",
+  "Resources",
+  "Consulting",
+  "Blog",
+  "Contact",
+];
+
+const ParallaxWrapper = ({
+  img,
+  pageDescription,
+  pageContent,
+  noParallax = false,
+}) => {
+  const [isScrollingDown, setIsScrollingDown] = useState(false);
+  const [isTop, setIsTop] = useState(true); //isTop is true if the scrollTop is at 0px from top
+  const [showSideNav, setShowSideNav] = useState(false);
   const parallaxWrapperRef = useRef();
   const scrollTop = useRef(0);
+  const currentPage = useCurrentPage();
+  const setCurrentPage = useSetCurrentPage();
 
   useEffect(() => {
     // add an eventlistener on load to determine the scrolling direction
-    // and manipulate the header component's styles
+    // and manipulate the header styles
 
     parallaxWrapperRef.current.addEventListener("scroll", (e) => {
-      if (e.target.scrollTop > scrollTop.current) {
-        setIsHidden(true);
-      } else {
-        setIsHidden(false);
-      }
-      if (e.target.scrollTop < 100) {
-        setIsTransparent(true);
-      } else {
-        setIsTransparent(false);
-      }
+      e.target.scrollTop > scrollTop.current
+        ? setIsScrollingDown(true)
+        : setIsScrollingDown(false);
+
+      e.target.scrollTop < 10 ? setIsTop(true) : setIsTop(false);
+
       scrollTop.current = e.target.scrollTop;
     });
   }, []);
 
   useEffect(() => {
-    //if side menu is open, scrolling is disabled
+    //disable scroll if side nav is open
 
-    if (isNavOpen) parallaxWrapperRef.current.style.overflowY = "hidden";
-    else parallaxWrapperRef.current.style.overflowY = "auto";
-  }, [isNavOpen]);
+    parallaxWrapperRef.current.style.overflowY = showSideNav
+      ? "hidden"
+      : "auto";
+  }, [showSideNav]);
 
   return (
-    <div className="parallax-wrapper" ref={parallaxWrapperRef}>
-      <Header
-        isHidden={isHidden}
-        isTransparent={isTransparent}
-        setIsNavOpen={setIsNavOpen}
+    <div
+      className={`parallax-wrapper ${noParallax ? "no-parallax" : ""}`}
+      ref={parallaxWrapperRef}
+    >
+      {/* HEADER */}
+
+      <header
+        className={`${isScrollingDown ? "hide" : ""} ${
+          isTop ? "transparent" : ""
+        }`}
+      >
+        <Logo dark={!isTop} />
+
+        <nav className="header-nav">
+          {navLinks.map((name, key) => {
+            return (
+              <NavButton
+                dark={!isTop}
+                active={name === currentPage}
+                key={key}
+                onClick={() => {
+                  setCurrentPage(name);
+                }}
+              >
+                {name}
+              </NavButton>
+            );
+          })}
+        </nav>
+
+        {/* Hamburger Side Nav Icon */}
+
+        <IconButton
+          className="open-side-nav"
+          onClick={() => {
+            setShowSideNav(true);
+          }}
+          dark={!isTop}
+        >
+          <i className="fas fa-bars" />
+        </IconButton>
+
+        {/* Side Nav Menu */}
+        <nav className={`side-nav ${showSideNav ? "show" : ""}`}>
+          {/* Close Side Nav Icon */}
+          {showSideNav && (
+            <IconButton
+              className="close-side-nav"
+              onClick={() => {
+                setShowSideNav(false);
+              }}
+            >
+              <i className="fas fa-times" />
+            </IconButton>
+          )}
+
+          {navLinks.map((name, key) => {
+            return (
+              <SideNavButton
+                active={name === currentPage}
+                key={key}
+                onClick={() => {
+                  setCurrentPage(name);
+                }}
+              >
+                {name}
+              </SideNavButton>
+            );
+          })}
+        </nav>
+      </header>
+      <ParallaxContent
+        img={img}
+        pageContent={pageContent}
+        pageDescription={pageDescription}
       />
-      <section className="page-description">
-        <img src={img} alt="" className="parallax-img" />
-        <div className="img-overlay" />
-        {pageDescription}
-      </section>
-      <section className="page-content">{pageContent}</section>
     </div>
   );
 };

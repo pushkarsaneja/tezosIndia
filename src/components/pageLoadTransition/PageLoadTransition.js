@@ -1,11 +1,11 @@
 import React from "react";
-import "./pageWrapper.scss";
+import "./pageLoadTransition.scss";
 
 // pageWrapper provides the on load animation to the page it is wrapped around.
 
-const PageWrapper = ({ children }) => {
+const PageLoadTransition = ({ children }) => {
   return (
-    <div className="page-wrapper">
+    <div className="page-load">
       <div className="curtain left"></div>
       <div className="curtain right"></div>
       <div className="curtain top"></div>
@@ -15,4 +15,4 @@ const PageWrapper = ({ children }) => {
   );
 };
 
-export default PageWrapper;
+export default PageLoadTransition;

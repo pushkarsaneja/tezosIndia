@@ -23,6 +23,17 @@ export const NavButton = ({ dark, active, children, onClick }) => {
   );
 };
 
+export const SideNavButton = ({ active, children, onClick }) => {
+  return (
+    <button
+      className={`side-nav-button ${active ? "dark" : ""}`}
+      onClick={onClick}
+    >
+      {children}
+    </button>
+  );
+};
+
 export const IconButton = ({ dark, children, onClick, className = "" }) => {
   return (
     <button
