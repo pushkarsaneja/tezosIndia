@@ -1,24 +1,33 @@
-import React from "react";
+import React, { memo, useEffect, useState } from "react";
 import Logo from "../logo/Logo";
 import "./header.scss";
 import {
   useCurrentPage,
   useSetCurrentPage,
 } from "../../contexts/CurrentPageProvider";
-import { NavButton } from "../buttons/Buttons";
+import { IconButton, NavButton } from "../buttons/Buttons";
 
-const Header = ({ isHidden = false, isTransparent = true }) => {
+const navLinks = [
+  "Home",
+  "Events",
+  "Resources",
+  "Consulting",
+  "Blog",
+  "Contact",
+];
+
+const Header = ({
+  isHidden = false,
+  isTransparent = true,
+  setIsNavOpen = null,
+}) => {
   const currentPage = useCurrentPage();
   const setCurrentPage = useSetCurrentPage();
+  const [showSideNav, setShowSideNav] = useState(false);
 
-  const navLinks = [
-    "Home",
-    "Events",
-    "Resources",
-    "Consulting",
-    "Blog",
-    "Contact",
-  ];
+  useEffect(() => {
+    setIsNavOpen?.(showSideNav);
+  }, [showSideNav, setIsNavOpen]);
 
   return (
     <header
@@ -27,26 +36,60 @@ const Header = ({ isHidden = false, isTransparent = true }) => {
       }`}
     >
       <Logo dark={!isTransparent} />
-      <nav>
-        <ul>
-          {navLinks.map((name, key) => {
-            return (
-              <NavButton
-                dark={!isTransparent}
-                active={name === currentPage}
-                key={key}
-                onClick={() => {
-                  setCurrentPage(name);
-                }}
-              >
-                {name}
-              </NavButton>
-            );
-          })}
-        </ul>
+
+      <nav className="header-nav">
+        {navLinks.map((name, key) => {
+          return (
+            <NavButton
+              dark={!isTransparent}
+              active={name === currentPage}
+              key={key}
+              onClick={() => {
+                setCurrentPage(name);
+              }}
+            >
+              {name}
+            </NavButton>
+          );
+        })}
+      </nav>
+
+      <IconButton
+        className="open-side-nav"
+        onClick={() => {
+          setShowSideNav(true);
+        }}
+        dark={!isTransparent}
+      >
+        <i className="fas fa-bars" />
+      </IconButton>
+      <nav className={`side-nav ${showSideNav ? "show" : ""}`}>
+        {showSideNav && (
+          <IconButton
+            className="close-side-nav"
+            onClick={() => {
+              setShowSideNav(false);
+            }}
+          >
+            <i className="fas fa-times" />
+          </IconButton>
+        )}
+        {navLinks.map((name, key) => {
+          return (
+            <NavButton
+              active={name === currentPage}
+              key={key}
+              onClick={() => {
+                setCurrentPage(name);
+              }}
+            >
+              {name}
+            </NavButton>
+          );
+        })}
       </nav>
     </header>
   );
 };
 
-export default Header;
+export default memo(Header);

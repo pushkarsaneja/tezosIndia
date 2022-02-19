@@ -5,7 +5,6 @@ import PageContent from "./PageContent";
 import ParallaxWrapper from "../../components/parallaxWrapper/ParallaxWrapper";
 import "./home.scss";
 import PageWrapper from "../../components/pageWrapper/PageWrapper";
-import Header from "../../components/header/Header";
 
 const Home = () => {
   return (
