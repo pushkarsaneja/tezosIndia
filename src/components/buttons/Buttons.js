@@ -22,3 +22,14 @@ export const NavButton = ({ dark, active, children, onClick }) => {
     </button>
   );
 };
+
+export const IconButton = ({ dark, children, onClick, className = "" }) => {
+  return (
+    <button
+      className={`${className} icon-button ${dark ? "dark" : ""}`}
+      onClick={onClick}
+    >
+      {children}
+    </button>
+  );
+};
