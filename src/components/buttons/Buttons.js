@@ -11,3 +11,14 @@ export const PrimaryButton = ({ children }) => {
     </button>
   );
 };
+
+export const NavButton = ({ dark, active, children, onClick }) => {
+  return (
+    <button
+      className={`nav-button ${active ? "active" : ""} ${dark ? "dark" : ""}`}
+      onClick={onClick}
+    >
+      {children}
+    </button>
+  );
+};

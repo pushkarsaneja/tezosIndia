@@ -1,18 +1,21 @@
 import React from "react";
-// import Header from "../../components/Header";
 import lightHero from "../../assets/light-hero.png";
 import PageDescription from "./PageDescription";
 import PageContent from "./PageContent";
 import ParallaxWrapper from "../../components/parallaxWrapper/ParallaxWrapper";
 import "./home.scss";
+import PageWrapper from "../../components/pageWrapper/PageWrapper";
+import Header from "../../components/header/Header";
 
 const Home = () => {
   return (
-    <ParallaxWrapper
-      img={lightHero}
-      pageDescription={<PageDescription />}
-      pageContent={<PageContent />}
-    />
+    <PageWrapper>
+      <ParallaxWrapper
+        img={lightHero}
+        pageDescription={<PageDescription />}
+        pageContent={<PageContent />}
+      />
+    </PageWrapper>
   );
 };
 

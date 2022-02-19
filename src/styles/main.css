@@ -7,13 +7,22 @@
 }
 
 body {
-  background-color: #1a1c1e;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
 }
 
 :root {
   --imgOverlay: #00000073;
   --textColor1: #fff;
   --textColor2: #b1b6cf;
-  --primaryColor: #2d74fd;
+  --textColor3: #808080;
+  --textColor4: #000000;
+  --primaryColor1: #2d74fd;
+  --darkShadow: 0px 7px 20px -9px rgba(0, 0, 0, 0.75);
+  --backgroundColor1: #ffffff;
+  --backgroundColor2: #1a1c1e;
 }

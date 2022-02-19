@@ -1,0 +1,50 @@
+.page-wrapper {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  .curtain {
+    position: absolute;
+    background-color: var(--backgroundColor2);
+    z-index: 2;
+  }
+  .left,
+  .right {
+    height: 100%;
+    width: 50%;
+    animation: shrink-width 1s ease-out forwards;
+  }
+
+  .left {
+    left: 0;
+  }
+
+  .right {
+    right: 0;
+  }
+
+  .top,
+  .bottom {
+    height: 50%;
+    width: 100%;
+    animation: shrink-height 1s ease-out forwards;
+  }
+
+  .top {
+    top: 0;
+  }
+
+  .bottom {
+    bottom: 0;
+  }
+}
+@keyframes shrink-width {
+  100% {
+    width: 0%;
+  }
+}
+
+@keyframes shrink-height {
+  100% {
+    height: 0%;
+  }
+}
