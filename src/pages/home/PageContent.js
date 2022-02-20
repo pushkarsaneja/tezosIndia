@@ -1,5 +1,7 @@
 import React from "react";
+import { PrimaryButton } from "../../components/buttons/Buttons";
 import { Card1 } from "../../components/cards/Card";
+import Counter from "../../components/counter/Counter";
 
 const initiatives = [
   {
@@ -18,14 +20,14 @@ const initiatives = [
   },
   {
     img: "https://tezosindia.org.in/wp-content/uploads/2021/12/md-duran-rE9vgD_TXgM-unsplash.jpg",
-    icon: <i class="fas fa-medal" />,
+    icon: <i className="fas fa-medal" />,
     title: "Hackathons",
     description:
       "We actively conduct and support hackathons & other developer activities including our flagship program, Tezos India Fellowship, to enable individuals and teams to build innovative projects, PoCs on Tezos.",
   },
   {
     img: "https://tezosindia.org.in/wp-content/uploads/2022/01/austin-distel-rxpThOwuVgE-unsplash-scaled.jpg",
-    icon: <i class="fas fa-suitcase" />,
+    icon: <i className="fas fa-suitcase" />,
     title: "Business Development",
     description:
       "We help our ecosystem partners to leverage the power of Tezos by making relevant connections and help with grants on a case-by-case basis.",
@@ -62,6 +64,29 @@ const PageContent = () => {
             />
           );
         })}
+      </section>
+
+      {/* Project and Community */}
+      <section className="project-and-comm">
+        <div className="projects">
+          <div>
+            <div className="heading">Projects</div>
+            <Counter number={13}></Counter>
+          </div>
+        </div>
+        <div className="community">
+          <div>
+            <div className="heading">Community</div>
+            <Counter number={75000}></Counter>
+          </div>
+        </div>
+        <div className="difference">
+          <div>
+            <div className="heading">The Difference</div>
+            Tezos India Is Making In The Blockchain Ecosystem
+            <PrimaryButton className="learn-more">Learn More</PrimaryButton>
+          </div>
+        </div>
       </section>
     </div>
   );

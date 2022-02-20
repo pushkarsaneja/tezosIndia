@@ -58,8 +58,39 @@
   .initiatives {
     display: flex;
     width: 100%;
-    margin-bottom: 2rem;
     flex-wrap: wrap;
     justify-content: center;
+  }
+
+  .project-and-comm {
+    background-image: url("../../assets/comp-1.jpg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    padding: 4rem 2rem;
+
+    .difference,
+    .projects,
+    .community {
+      font-size: 2.5rem;
+      padding: 2rem;
+      .heading {
+        color: var(--textColor3);
+        font-size: 1rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    .difference {
+      flex: 2;
+      .learn-more {
+        margin-left: 0;
+      }
+    }
+    .projects,
+    .community {
+      flex: 1;
+    }
   }
 }

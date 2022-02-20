@@ -8,6 +8,7 @@ import {
 } from "../../contexts/CurrentPageProvider";
 import { IconButton, NavButton, SideNavButton } from "../buttons/Buttons";
 import ParallaxContent from "./ParallaxContent";
+import { useSetBodyRef } from "../../contexts/BodyRefProvider";
 // this component creates a page with parallax scrolling effect and header
 // pageDescription takes the component to be placed over the image
 // pageContent takes the component to be inserted after the image
@@ -34,10 +35,12 @@ const ParallaxWrapper = ({
   const scrollTop = useRef(0);
   const currentPage = useCurrentPage();
   const setCurrentPage = useSetCurrentPage();
+  const setBodyRef = useSetBodyRef();
 
   useEffect(() => {
     // add an eventlistener on load to determine the scrolling direction
     // and manipulate the header styles
+    setBodyRef(parallaxWrapperRef);
 
     parallaxWrapperRef.current.addEventListener("scroll", (e) => {
       e.target.scrollTop > scrollTop.current
@@ -48,7 +51,7 @@ const ParallaxWrapper = ({
 
       scrollTop.current = e.target.scrollTop;
     });
-  }, []);
+  }, [setBodyRef]);
 
   useEffect(() => {
     //disable scroll if side nav is open

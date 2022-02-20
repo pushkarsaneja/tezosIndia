@@ -1,9 +1,9 @@
 import React from "react";
 import "./buttons.scss";
 
-export const PrimaryButton = ({ children }) => {
+export const PrimaryButton = ({ children, className = "" }) => {
   return (
-    <button className="primary-button">
+    <button className={`primary-button ${className}`}>
       {children}
       <span className="icon-container">
         <i className="fas fa-arrow-right" />
