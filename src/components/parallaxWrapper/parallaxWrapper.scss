@@ -54,7 +54,7 @@
       align-items: flex-start;
       transition: all 0.2s linear;
       padding-top: 3rem;
-      z-index: 0;
+      z-index: 2;
 
       &.show {
         width: 70vw;

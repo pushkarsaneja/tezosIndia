@@ -6,6 +6,7 @@
   position: relative;
   overflow: hidden;
   margin-top: 1rem;
+  z-index: 0;
   @media screen and (max-width: 700px) {
     margin: 1rem;
   }
@@ -68,6 +69,7 @@
     height: 100%;
     width: 100%;
     top: 100%;
+    z-index: 0;
     background-image: linear-gradient(
       to top,
       rgb(26, 59, 143) 0%,
