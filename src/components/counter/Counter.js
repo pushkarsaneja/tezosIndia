@@ -3,7 +3,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { useInViewport } from "../../customHooks/customHooks";
 import "./counter.scss";
 
-const Counter = ({ number }) => {
+const Counter = ({ className = "", number }) => {
   const start = number - 100 > 0 ? number - 100 : 0;
   const [count, setCount] = useState(start);
   const countRef = useRef(start);
@@ -21,7 +21,7 @@ const Counter = ({ number }) => {
   }, [number, isInViewPort]);
 
   return (
-    <span className="counter" ref={counterRef}>
+    <span className={`counter ${className}`} ref={counterRef}>
       {count}
       <sup>+</sup>
     </span>

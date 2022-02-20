@@ -63,11 +63,16 @@
   }
 
   .project-and-comm {
-    background-image: url("../../assets/comp-1.jpg");
     background-size: cover;
     background-position: center;
     display: flex;
+    flex-direction: column;
     padding: 4rem 2rem;
+
+    @media screen and (min-width: 900px) {
+      flex-direction: row;
+      background-image: url("../../assets/comp-1.jpg");
+    }
 
     .difference,
     .projects,
@@ -83,7 +88,10 @@
     }
 
     .difference {
-      flex: 2;
+      flex: 1;
+      @media screen and (min-width: 900px) {
+        flex: 2;
+      }
       .learn-more {
         margin-left: 0;
       }
@@ -91,6 +99,59 @@
     .projects,
     .community {
       flex: 1;
+    }
+  }
+
+  .tezos-numbers {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem;
+
+    @media screen and (max-width: 900px) {
+      padding: 1rem;
+      padding-top: 0;
+    }
+
+    h2 {
+      font-size: 3.5rem;
+      font-weight: 300;
+      text-align: center;
+    }
+
+    .counters-container {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+
+      @media screen and (max-width: 900px) {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .projects,
+      .hackathons,
+      .blockchain {
+        margin: 1rem;
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        h3 {
+          font-size: 1rem;
+          font-weight: 300;
+          text-align: center;
+        }
+
+        .tezos-number-counter {
+          font-size: 5rem;
+          font-weight: 300;
+        }
+      }
     }
   }
 }
