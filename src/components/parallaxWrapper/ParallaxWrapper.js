@@ -9,18 +9,11 @@ import {
 import { IconButton, NavButton, SideNavButton } from "../buttons/Buttons";
 import ParallaxContent from "./ParallaxContent";
 import { useSetBodyRef } from "../../contexts/BodyRefProvider";
+import Footer from "../footer/Footer";
+import { navLinks } from "../../data/navlinks";
 // this component creates a page with parallax scrolling effect and header
 // pageDescription takes the component to be placed over the image
 // pageContent takes the component to be inserted after the image
-
-const navLinks = [
-  "Home",
-  "Events",
-  "Resources",
-  "Consulting",
-  "Blog",
-  "Contact",
-];
 
 const ParallaxWrapper = ({
   img,
@@ -138,6 +131,7 @@ const ParallaxWrapper = ({
         pageContent={pageContent}
         pageDescription={pageDescription}
       />
+      <Footer />
     </div>
   );
 };

@@ -1,38 +1,11 @@
 import React from "react";
 import { PrimaryButton } from "../../components/buttons/Buttons";
-import { Card1 } from "../../components/cards/Card";
+import { Card1, TeamCard, VideoCard } from "../../components/cards/Cards";
 import Counter from "../../components/counter/Counter";
-
-const initiatives = [
-  {
-    img: "https://tezosindia.org.in/wp-content/uploads/2021/12/brooke-cagle-g1Kr4Ozfoac-unsplash-scaled.jpg",
-    icon: <i className="fas fa-university" />,
-    title: "Education",
-    description:
-      "We conduct regular education programs to enable the community to build on Tezos & learn about Tezos.",
-  },
-  {
-    img: "https://tezosindia.org.in/wp-content/uploads/2021/12/charles-forerunner-3fPXt37X6UQ-unsplash-scaled.jpg",
-    icon: <i className="fas fa-calendar-alt" />,
-    title: "Events",
-    description:
-      "We conduct events with ecosystem partners to bring rich discussions around the role of blockchains today.",
-  },
-  {
-    img: "https://tezosindia.org.in/wp-content/uploads/2021/12/md-duran-rE9vgD_TXgM-unsplash.jpg",
-    icon: <i className="fas fa-medal" />,
-    title: "Hackathons",
-    description:
-      "We actively conduct and support hackathons & other developer activities including our flagship program, Tezos India Fellowship, to enable individuals and teams to build innovative projects, PoCs on Tezos.",
-  },
-  {
-    img: "https://tezosindia.org.in/wp-content/uploads/2022/01/austin-distel-rxpThOwuVgE-unsplash-scaled.jpg",
-    icon: <i className="fas fa-suitcase" />,
-    title: "Business Development",
-    description:
-      "We help our ecosystem partners to leverage the power of Tezos by making relevant connections and help with grants on a case-by-case basis.",
-  },
-];
+import { initiatives } from "../../data/initiatives";
+import { ourTeam } from "../../data/ourTeam";
+import { successStories } from "../../data/successStories";
+import { videos } from "../../data/videos";
 
 const PageContent = () => {
   return (
@@ -89,6 +62,41 @@ const PageContent = () => {
         </div>
       </section>
 
+      {/* Meet Our Team */}
+      <section className="our-team">
+        <h2>Meet Our Team</h2>
+        <div className="team-members-container">
+          {ourTeam.map(({ img, designation, name, description }, key) => {
+            return (
+              <TeamCard
+                key={key}
+                img={img}
+                designation={designation}
+                name={name}
+                description={description}
+              />
+            );
+          })}
+        </div>
+      </section>
+
+      {/* Learn More About Tezos */}
+      <section className="videos">
+        <h2>Learn More About Tezos</h2>
+        <div className="video-cards-container">
+          {videos.map(({ preview, url, heading, description }) => {
+            return (
+              <VideoCard
+                preview={preview}
+                heading={heading}
+                url={url}
+                description={description}
+              />
+            );
+          })}
+        </div>
+      </section>
+
       {/* Tezos India in Numbers */}
       <section className="tezos-numbers">
         <h2>Tezos India In Numbers</h2>
@@ -105,6 +113,61 @@ const PageContent = () => {
             <Counter className="tezos-number-counter" number={6000} />
             <h3>Developers developing on Tezos Blockchain in India</h3>
           </div>
+        </div>
+      </section>
+
+      {/* Hackathon Initiatives */}
+      <section className="hackathon-initiatives">
+        <div className="hackathon">
+          <h2>Our Hackathon Initiatives</h2>
+          <p>
+            Tezos India Fellowship is our flagship event. <span>Season 1</span>{" "}
+            for <span>Tezos India</span> Fellowship was hosted in{" "}
+            <span>July 2020</span>, which focused on upskilling the top Web3
+            talent and onboarding them to the Tezos ecosystem over a period of{" "}
+            <span>8 weeks</span>. The fellowship turned out to be a big hit
+            among the hacker community in India.
+          </p>
+          <p>
+            We received <span>1400+</span> applications in 2 weeks, out of which{" "}
+            <span>10 developers</span> were selected. It is more like a
+            pre-accelerator program where we facilitate workshops, mentorships
+            for the participants to learn over the course of their journey. As a
+            result, we received <span>7</span> amazing projects.
+          </p>
+        </div>
+        <div className="hackathon-imgs">
+          <div className="imgs-container">
+            <img
+              className="img1"
+              src="https://tezosindia.org.in/wp-content/uploads/2021/12/E_vjTbqUcAIsSGq-768x402.jpeg"
+              alt=""
+            />
+            <img
+              className="img2"
+              src="https://tezosindia.org.in/wp-content/uploads/2021/12/E9jt2pRVEAU7zfc.jpeg"
+              alt=""
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Success Stories */}
+      <section className="success-stories">
+        <h2>Some Of Our Success Stories At Tezos India</h2>
+        <div className="brands">
+          {successStories.map(({ name, img }) => (
+            <img src={img} alt={name} />
+          ))}
+        </div>
+      </section>
+
+      {/* Get In Touch */}
+      <section className="get-in-touch">
+        <div className="image-overlay">
+          <h2>Get In Touch</h2>
+          <h3>We can help you build, market and grow your project on tezos.</h3>
+          <PrimaryButton>Contact Us</PrimaryButton>
         </div>
       </section>
     </div>

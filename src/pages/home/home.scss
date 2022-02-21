@@ -102,6 +102,59 @@
     }
   }
 
+  .our-team {
+    padding-top: 2rem;
+    h2 {
+      text-align: center;
+      font-size: 4rem;
+      font-weight: 400;
+      margin: 2rem;
+    }
+
+    .team-members-container {
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      flex-wrap: wrap;
+
+      @media screen and (min-width: 600px) {
+        height: 3000px;
+      }
+      @media screen and (min-width: 820px) {
+        height: 2300px;
+      }
+      @media screen and (min-width: 1200px) {
+        height: 1900px;
+      }
+      @media screen and (min-width: 1400px) {
+        height: 1600px;
+      }
+      @media screen and (min-width: 1500px) {
+        height: 1300px;
+      }
+    }
+  }
+
+  .videos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--backgroundColor3);
+    padding: 2rem;
+    > h2 {
+      font-size: 3.5rem;
+      font-weight: 300;
+      text-align: center;
+    }
+    .video-cards-container {
+      padding: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+
   .tezos-numbers {
     display: flex;
     width: 100%;
@@ -151,6 +204,121 @@
           font-size: 5rem;
           font-weight: 300;
         }
+      }
+    }
+  }
+
+  .hackathon-initiatives {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: var(--backgroundColor3);
+    padding: 4rem;
+    @media screen and (max-width: 500px) {
+      padding: 2rem;
+    }
+
+    .hackathon,
+    .hackathon-imgs {
+      padding: 2rem 0;
+      width: 500px;
+      @media screen and (max-width: 500px) {
+        width: 400px;
+      }
+    }
+
+    .hackathon {
+      h2 {
+        font-size: 3rem;
+        font-weight: 400;
+      }
+
+      p {
+        font-size: 1.2rem;
+        font-weight: 300;
+        margin-bottom: 1rem;
+        span {
+          font-weight: bold;
+        }
+      }
+    }
+
+    .hackathon-imgs {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .imgs-container {
+        position: relative;
+        width: 90%;
+
+        .img1,
+        .img2 {
+          width: 100%;
+        }
+
+        .img2 {
+          position: absolute;
+          top: 20%;
+          left: 10%;
+        }
+      }
+    }
+  }
+
+  .success-stories {
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    h2 {
+      text-align: center;
+      font-size: 3rem;
+      font-weight: 400;
+    }
+
+    .brands {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 4rem 0;
+
+      img {
+        height: 100px;
+        margin: 1rem;
+      }
+    }
+  }
+
+  .get-in-touch {
+    background-image: url("../../assets/hero.png");
+    background-size: cover;
+    background-position: center;
+    min-height: 500px;
+    position: relative;
+
+    .image-overlay {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: var(--imgOverlay);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: var(--textColor1);
+      padding: 2rem;
+      h2 {
+        font-size: 3rem;
+        margin: 1rem;
+      }
+
+      h3 {
+        text-align: center;
       }
     }
   }

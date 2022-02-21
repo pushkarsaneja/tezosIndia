@@ -44,3 +44,14 @@ export const IconButton = ({ dark, children, onClick, className = "" }) => {
     </button>
   );
 };
+
+export const TextButton = ({ dark, children, onClick, className = "" }) => {
+  return (
+    <button
+      className={`${className} text-button ${dark ? "dark" : ""}`}
+      onClick={onClick}
+    >
+      {children}
+    </button>
+  );
+};
