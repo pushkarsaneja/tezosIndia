@@ -4,7 +4,7 @@ import { PrimaryButton } from "../../components/buttons/Buttons";
 
 const PageDescription = () => {
   return (
-    <div className="page-description">
+    <div className="home-page-description">
       <div className="description-container">
         <h2>Our Mission</h2>
         <h1>

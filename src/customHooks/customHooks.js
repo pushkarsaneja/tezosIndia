@@ -6,7 +6,7 @@ export const useInViewport = (componentRef) => {
   const [isInViewPort, setIsInViewPort] = useState(false);
   const inViewPort = useRef(false);
   useEffect(() => {
-    bodyRef?.current.addEventListener("scroll", () => {
+    bodyRef?.current?.addEventListener("scroll", () => {
       if (
         componentRef?.current.getBoundingClientRect().top >= 0 &&
         componentRef?.current.getBoundingClientRect().top <= window.innerHeight

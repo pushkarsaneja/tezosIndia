@@ -1,0 +1,87 @@
+.consulting-page-description {
+  height: 100%;
+  width: 100%;
+  color: var(--textColor1);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  .what-we-do {
+    padding-left: 4rem;
+
+    h2 {
+      font-size: 3rem;
+      font-weight: 400;
+      margin: 2rem 0;
+    }
+
+    h3 {
+      margin: 2rem 0;
+    }
+
+    .learn-more {
+      margin-left: 0;
+    }
+  }
+}
+
+.consulting-page-content {
+  .blockchain-solutions {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--textColor3);
+
+    h2 {
+      font-size: 3rem;
+      font-weight: 400;
+      text-align: center;
+      color: var(--textColor4);
+      margin-bottom: 2rem;
+    }
+
+    p {
+      text-align: center;
+      max-width: 600px;
+      margin-bottom: 2rem;
+    }
+
+    .solutions-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      max-width: 900px;
+      .solution {
+        min-width: 300px;
+        flex-basis: 33.33%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+        font-weight: 300;
+        i {
+          font-size: 2rem;
+        }
+
+        .heading {
+          font-size: 1.5rem;
+        }
+
+        .heading,
+        .description {
+          text-align: center;
+          margin-top: 1rem;
+        }
+      }
+
+      .br-line {
+        @media screen and (max-width: 1000px) {
+          display: none;
+        }
+      }
+    }
+  }
+}

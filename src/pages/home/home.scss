@@ -1,4 +1,4 @@
-.page-description {
+.home-page-description {
   width: 100%;
   display: flex;
   align-items: center;
@@ -33,7 +33,7 @@
   }
 }
 
-.page-content {
+.home-page-content {
   width: 100%;
 
   .sub-heading-container {
@@ -102,6 +102,45 @@
     }
   }
 
+  .community-testimonials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 2rem;
+    background-color: var(--backgroundColor3);
+    @media screen and (max-width: 1100px) {
+      flex-direction: column;
+    }
+
+    @media screen and (max-width: 500px) {
+      padding: 4rem 0.5rem;
+    }
+
+    .section-name {
+      h2 {
+        font-size: 3rem;
+        font-weight: 400;
+        flex: 1;
+      }
+      padding: 2rem;
+
+      .primary-button {
+        margin-left: 0;
+      }
+    }
+
+    .carousel-container {
+      flex: 2;
+      @media screen and (max-width: 1100px) {
+        width: 100%;
+      }
+      .carousel {
+        width: 100%;
+        padding: 2rem;
+      }
+    }
+  }
+
   .our-team {
     padding-top: 2rem;
     h2 {
@@ -164,8 +203,7 @@
     padding: 4rem;
 
     @media screen and (max-width: 900px) {
-      padding: 1rem;
-      padding-top: 0;
+      padding: 4rem 1rem;
     }
 
     h2 {
@@ -220,9 +258,10 @@
 
     .hackathon,
     .hackathon-imgs {
-      padding: 2rem 0;
+      padding: 2rem;
       width: 500px;
       @media screen and (max-width: 500px) {
+        padding: 2rem 0rem;
         width: 400px;
       }
     }

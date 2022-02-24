@@ -2,7 +2,7 @@ import React from "react";
 import { IconButton } from "../buttons/Buttons";
 import "./cards.scss";
 
-export const Card1 = ({ icon, description, title, img }) => {
+export const InitiativesCard = ({ icon, description, title, img }) => {
   return (
     <div className="card-1">
       <img src={img} alt="" />
@@ -41,6 +41,16 @@ export const VideoCard = ({ preview, heading, url, description }) => {
       </div>
       <h2>{heading}</h2>
       <p>{description}</p>
+    </div>
+  );
+};
+
+export const TestimonialCard = ({ quote, by, program }) => {
+  return (
+    <div className="testimonial-card">
+      <p>{quote}</p>
+      <div className="name">{by}</div>
+      <div className="program">{program}</div>
     </div>
   );
 };

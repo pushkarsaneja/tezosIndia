@@ -8,11 +8,3 @@ export const A1 = ({ href, children }) => {
     </a>
   );
 };
-
-export const A2 = ({ href, children, active }) => {
-  return (
-    <a className={`a2 ${active ? "active" : ""}`} href={href}>
-      {children}
-    </a>
-  );
-};

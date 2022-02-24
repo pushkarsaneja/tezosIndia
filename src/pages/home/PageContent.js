@@ -1,15 +1,21 @@
 import React from "react";
 import { PrimaryButton } from "../../components/buttons/Buttons";
-import { Card1, TeamCard, VideoCard } from "../../components/cards/Cards";
+import {
+  InitiativesCard,
+  TeamCard,
+  TestimonialCard,
+  VideoCard,
+} from "../../components/cards/Cards";
 import Counter from "../../components/counter/Counter";
 import { initiatives } from "../../data/initiatives";
 import { ourTeam } from "../../data/ourTeam";
 import { successStories } from "../../data/successStories";
+import { testimonials } from "../../data/testimonials";
 import { videos } from "../../data/videos";
 
 const PageContent = () => {
   return (
-    <div className="page-content">
+    <div className="home-page-content">
       {/* Sub Heading */}
       <section className="sub-heading-container">
         <h3>
@@ -28,7 +34,7 @@ const PageContent = () => {
       <section className="initiatives">
         {initiatives.map(({ img, icon, title, description }, key) => {
           return (
-            <Card1
+            <InitiativesCard
               img={img}
               icon={icon}
               title={title}
@@ -62,6 +68,28 @@ const PageContent = () => {
         </div>
       </section>
 
+      {/* Community Testimonials */}
+      <section className="community-testimonials">
+        <div className="section-name">
+          <h2>Community Testimonials</h2>
+          <PrimaryButton>Contact Us</PrimaryButton>
+        </div>
+        <div className="carousel-container">
+          <div
+            className="main-carousel"
+            data-flickity='{ "wrapAround": true , "cellAlign": "left", "prevNextButtons": false}'
+          >
+            {testimonials.map(({ quote, by, program }, key) => {
+              return (
+                <div key={key} className="carousel-cell">
+                  <TestimonialCard quote={quote} by={by} program={program} />
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
       {/* Meet Our Team */}
       <section className="our-team">
         <h2>Meet Our Team</h2>
@@ -84,9 +112,10 @@ const PageContent = () => {
       <section className="videos">
         <h2>Learn More About Tezos</h2>
         <div className="video-cards-container">
-          {videos.map(({ preview, url, heading, description }) => {
+          {videos.map(({ preview, url, heading, description }, key) => {
             return (
               <VideoCard
+                key={key}
                 preview={preview}
                 heading={heading}
                 url={url}
@@ -156,8 +185,8 @@ const PageContent = () => {
       <section className="success-stories">
         <h2>Some Of Our Success Stories At Tezos India</h2>
         <div className="brands">
-          {successStories.map(({ name, img }) => (
-            <img src={img} alt={name} />
+          {successStories.map(({ name, img }, key) => (
+            <img key={key} src={img} alt={name} />
           ))}
         </div>
       </section>
