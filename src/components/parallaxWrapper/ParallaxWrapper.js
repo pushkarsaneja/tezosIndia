@@ -33,6 +33,15 @@ const ParallaxWrapper = ({
         <img src={img} alt="" className="parallax-img" />
         <div className="img-overlay" />
         {pageDescription}
+        {/* icons */}
+        {/* <i className="fab fa-ethereum ethereum" />
+        <i className="fab fa-bitcoin bitcoin" />
+        <i className="fab fa-hive hive" />
+        <i className="fas fa-th blocks" />
+        <i className="fas fa-code code" />
+        <i className="fas fa-briefcase briefcase" />
+        <i className="fas fa-building building" />
+        <i className="fas fa-project-diagram blockchain" /> */}
       </section>
 
       {/* Main Content of the Page */}

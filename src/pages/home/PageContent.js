@@ -1,3 +1,4 @@
+// import React from "react";
 import React from "react";
 import { PrimaryButton } from "../../components/buttons/Buttons";
 import {
@@ -16,9 +17,11 @@ import { videos } from "../../data/videos";
 const PageContent = () => {
   return (
     <div className="home-page-content">
+      {/* Main Carousel */}
+
       {/* Sub Heading */}
       <section className="sub-heading-container">
-        <h3>
+        <h3 className={"animate"}>
           Empowering A Well Rounded
           <br />
           Tezos Ecosystem In India
@@ -40,6 +43,7 @@ const PageContent = () => {
               title={title}
               description={description}
               key={key}
+              index={key}
             />
           );
         })}
@@ -82,7 +86,12 @@ const PageContent = () => {
             {testimonials.map(({ quote, by, program }, key) => {
               return (
                 <div key={key} className="carousel-cell">
-                  <TestimonialCard quote={quote} by={by} program={program} />
+                  <TestimonialCard
+                    quote={quote}
+                    by={by}
+                    program={program}
+                    index={key}
+                  />
                 </div>
               );
             })}

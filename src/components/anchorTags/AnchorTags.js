@@ -1,10 +1,11 @@
 import React from "react";
 import "./AnchorTags.scss";
 
-export const A1 = ({ href, children }) => {
+export const SocialLink = ({ href, children, type }) => {
   return (
-    <a className="a1" href={href}>
-      {children}
+    <a className="social-link" href={href}>
+      <span>{children}</span>
+      <i className={`fab fa-${type}`} />
     </a>
   );
 };

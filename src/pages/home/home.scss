@@ -11,13 +11,20 @@
     color: var(--textColor1);
     padding: 1rem;
     max-width: 1000px;
-    padding: 5rem;
+
+    h1,
+    h2,
+    h3 {
+      animation: slide-from-bottom 0.6s ease-out both;
+    }
+
     h1 {
       font-size: 3.8rem;
       font-weight: bold;
       text-align: center;
       line-height: 3.5rem;
       margin: 0.8rem;
+      animation-delay: 0.1s;
     }
     h3 {
       text-align: center;
@@ -25,10 +32,12 @@
       font-weight: 500;
       margin: 1rem;
       color: var(--textColor2);
+      animation-delay: 0.2s;
     }
 
     .social-media {
       margin: 1rem;
+      display: flex;
     }
   }
 }
@@ -42,11 +51,16 @@
     align-items: center;
     flex-direction: column;
     padding: 4rem 2rem;
+
     h3 {
       text-align: center;
       font-size: 3rem;
       font-weight: 400;
       margin-bottom: 1rem;
+
+      &.animate {
+        animation: textAnimation 0.5s ease-in-out both;
+      }
     }
     h4 {
       font-weight: 400;
@@ -360,5 +374,29 @@
         text-align: center;
       }
     }
+  }
+}
+
+//animations
+
+@keyframes slide-from-bottom {
+  from {
+    transform: translateY(500px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes textAnimation {
+  from {
+    line-height: 0rem;
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    line-height: 4rem;
   }
 }

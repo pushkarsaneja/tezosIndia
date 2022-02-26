@@ -11,72 +11,6 @@
     perspective: none;
   }
 
-  header {
-    background-color: var(--backgroundColor1);
-    position: sticky;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    transition: all 0.4s ease-in-out;
-    &.hide {
-      transform: translateY(-5rem);
-    }
-    &.transparent {
-      background-color: transparent;
-    }
-
-    .header-nav {
-      display: none;
-      @media screen and (min-width: 900px) {
-        display: block;
-      }
-    }
-
-    .open-side-nav {
-      display: none;
-      @media screen and (max-width: 900px) {
-        display: block;
-      }
-    }
-
-    .side-nav {
-      height: 100vh;
-      width: 0;
-      position: absolute;
-      top: 0;
-      right: 0;
-      background-color: var(--primaryColor1);
-      display: none;
-      flex-direction: column;
-      align-items: flex-start;
-      transition: all 0.2s linear;
-      padding-top: 3rem;
-      z-index: 2;
-
-      &.show {
-        width: 70vw;
-      }
-
-      .close-side-nav {
-        position: absolute;
-        top: 0;
-        right: 0;
-      }
-
-      @media screen and (max-width: 900px) {
-        display: flex;
-      }
-    }
-
-    @media screen and (max-width: 900px) {
-      justify-content: space-between;
-    }
-  }
-
   .page-description {
     width: 100%;
     position: relative;
@@ -99,6 +33,71 @@
       height: calc(100% + 5rem);
     }
 
+    .ethereum,
+    .blocks,
+    .hive,
+    .bitcoin,
+    .code,
+    .briefcase,
+    .building,
+    .blockchain {
+      font-size: 4rem;
+      position: absolute;
+      animation: appear-in 0.6s linear both, float 2s linear infinite;
+      color: var(--textColor1);
+      transition: all 0.2s linear;
+      &:hover {
+        font-size: 5rem;
+      }
+    }
+
+    .ethereum {
+      top: 10%;
+      left: 10%;
+      animation-delay: 0.5s;
+    }
+
+    .blocks {
+      top: 25%;
+      right: 10%;
+      animation-delay: 0.7s;
+    }
+
+    .hive {
+      bottom: 15%;
+      left: 15%;
+      animation-delay: 0.9s;
+    }
+
+    .bitcoin {
+      bottom: 15%;
+      right: 30%;
+      animation-delay: 0.2s;
+    }
+
+    .briefcase {
+      top: 6%;
+      left: 35%;
+      animation-delay: 0.4s;
+    }
+
+    .code {
+      left: 5%;
+      animation-delay: 0.8s;
+    }
+
+    .building {
+      top: 10%;
+      right: 30%;
+      animation-delay: 0.6s;
+    }
+
+    .blockchain {
+      right: 10%;
+      bottom: 30%;
+      animation-delay: 0.1s;
+    }
+
     .img-overlay {
       background-color: var(--imgOverlay);
     }
@@ -107,5 +106,46 @@
   .page-content {
     background-color: var(--backgroundColor1);
     z-index: 2;
+    position: relative;
+  }
+  .cursor {
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--primaryColor1);
+    left: 0;
+    top: 0;
+    pointer-events: none;
+  }
+}
+
+//animation
+
+@keyframes float {
+  0% {
+    transform: translate(-50%, -50%);
+  }
+  25% {
+    transform: translate(-50%, -48%);
+  }
+  50% {
+    transform: translate(-50%, -50%);
+  }
+  75% {
+    transform: translate(-50%, -53%);
+  }
+  100% {
+    transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes appear-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
