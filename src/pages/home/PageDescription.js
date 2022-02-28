@@ -8,16 +8,20 @@ const PageDescription = () => {
   const seekRef = useRef(0);
 
   useEffect(() => {
-    const myInterval = setInterval(() => {
-      setHeading(
-        (prev) => prev.slice(0, prev.length - 1) + string[seekRef.current] + "|"
-      );
-      if (seekRef.current === string.length - 1) {
-        clearInterval(myInterval);
-        setHeading((prev) => prev.slice(0, prev.length - 1));
-      }
-      seekRef.current += 1;
-    }, 50);
+    const myTimeout = setTimeout(() => {
+      const myInterval = setInterval(() => {
+        setHeading(
+          (prev) =>
+            prev.slice(0, prev.length - 1) + string[seekRef.current] + "|"
+        );
+        if (seekRef.current === string.length - 1) {
+          clearInterval(myInterval);
+          setHeading((prev) => prev.slice(0, prev.length - 1));
+        }
+        seekRef.current += 1;
+      }, 50);
+      clearTimeout(myTimeout);
+    }, 2000);
   }, []);
 
   return (

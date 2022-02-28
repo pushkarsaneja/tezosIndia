@@ -10,6 +10,11 @@ const PageLoadTransition = ({ children }) => {
       <div className="curtain right"></div>
       <div className="curtain top"></div>
       <div className="curtain bottom"></div>
+      <img
+        className="entry-logo"
+        src="https://tezos.com/brand/TezosLogo_Horizontal_White.svg"
+        alt="logo"
+      />
       {children}
     </div>
   );

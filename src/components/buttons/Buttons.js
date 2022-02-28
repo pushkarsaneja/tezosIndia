@@ -23,11 +23,18 @@ export const NavButton = ({ dark, active, children, onClick }) => {
   );
 };
 
-export const SideNavButton = ({ active, children, onClick }) => {
+export const SideNavButton = ({
+  active,
+  children,
+  onClick,
+  className = "",
+  index,
+}) => {
   return (
     <button
-      className={`side-nav-button ${active ? "dark" : ""}`}
+      className={`side-nav-button ${active ? "dark" : ""} ${className}`}
       onClick={onClick}
+      style={{ animationDelay: `${index * 0.1}s` }}
     >
       {children}
     </button>
@@ -54,4 +61,16 @@ export const TextButton = ({ dark, children, onClick, className = "" }) => {
       {children}
     </button>
   );
+};
+
+export const CircularButton = ({ children, onClick, className = "" }) => {
+  return (
+    <button className={`circular-button ${className}`} onClick={onClick}>
+      {children}
+    </button>
+  );
+};
+
+export const ViewMoreButton = ({ children, onClick, className = "" }) => {
+  return <button className={`view-more-btn ${className}`}>{children}</button>;
 };

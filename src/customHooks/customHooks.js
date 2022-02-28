@@ -24,3 +24,16 @@ export const useInViewport = (componentRef) => {
 
   return isInViewPort;
 };
+
+export const useAnimationTrigger = (componentRef) => {
+  const [animationTrigger, setAnimationTrigger] = useState(false);
+  const isInViewPort = useInViewport(componentRef);
+
+  useEffect(() => {
+    if (isInViewPort) {
+      setAnimationTrigger(true);
+    }
+  }, [isInViewPort]);
+
+  return animationTrigger;
+};

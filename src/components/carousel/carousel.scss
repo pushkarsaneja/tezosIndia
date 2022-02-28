@@ -1,0 +1,300 @@
+@import url("./animation.scss");
+
+.tezos-carousel {
+  min-height: 700px;
+  height: 100vh;
+  width: 100%;
+  background-color: var(--backgroundColor2);
+  position: relative;
+
+  .carousel-background {
+    width: 100%;
+    height: 100%;
+    background-color: var(--primaryColor1);
+    position: absolute;
+    right: 0;
+  }
+
+  .carousel-body {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    overflow: hidden;
+
+    .logo {
+      width: 150px;
+      margin: 2rem;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    @media screen and (min-width: 1200px) {
+      .slide-left,
+      .slide-right {
+        position: absolute;
+        top: 50%;
+      }
+
+      .slide-left {
+        left: 2rem;
+      }
+
+      .slide-right {
+        right: 2rem;
+      }
+    }
+
+    .navigation {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      @media screen and (min-width: 1200px) {
+        left: 6rem;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .dot {
+        height: 15px;
+        width: 15px;
+        border-radius: 50%;
+        border: 1px solid var(--backgroundColor2);
+        margin: 5px;
+        cursor: pointer;
+
+        &.active {
+          background-color: var(--backgroundColor2);
+        }
+      }
+    }
+
+    .scroll-down-text {
+      color: var(--textColor1);
+      letter-spacing: 10px;
+      transform: rotate(-90deg);
+      transform-origin: left;
+      margin: 2rem;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+
+    .illustration {
+      position: absolute;
+      z-index: 1;
+
+      &.one {
+        top: -8rem;
+        left: 20rem;
+      }
+
+      &.two {
+        bottom: 0;
+        left: 45%;
+      }
+    }
+
+    .carousel-slide {
+      height: 100%;
+      width: 100%;
+      padding: 2rem 8rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: 0.5s;
+
+      .slide-content {
+        flex: 1;
+        padding: 2rem;
+
+        h1,
+        h2,
+        .category,
+        .view-more,
+        .date {
+          opacity: 0;
+        }
+
+        h1 {
+          color: var(--textColor1);
+          font-size: 4vw;
+          font-weight: 500;
+        }
+        h2 {
+          font-weight: 300;
+        }
+        .category {
+          margin-top: 1rem;
+          font-size: 1.5rem;
+          position: relative;
+          padding-top: 0.5rem;
+          width: 4rem;
+
+          &::after {
+            content: "";
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-top: 4px solid var(--backgroundColor2);
+          }
+        }
+      }
+
+      .slide-img {
+        flex: 1;
+        height: 90%;
+        overflow: hidden;
+        opacity: 0;
+        img {
+          height: 100%;
+          transform: translateX(-25%);
+          object-fit: cover;
+        }
+      }
+
+      &.animate {
+        .slide-content {
+          h2,
+          h1,
+          .date,
+          .view-more {
+            animation: appear-from-bottom 0.5s ease-in-out both;
+          }
+          h1 {
+            animation-delay: 0.2s;
+          }
+          .category {
+            animation: appear-from-bottom 0.5s 0.4s ease-in-out both,
+              expand-line 0.3s 0.8s ease-in-out both;
+          }
+          .date {
+            animation-delay: 0.6s;
+          }
+          .view-more {
+            animation-delay: 0.8s;
+          }
+        }
+        .slide-img {
+          animation: appear-from-bottom 0.5s 0.5s ease-in-out both;
+        }
+      }
+    }
+  }
+
+  &.animate {
+    .carousel-background {
+      animation: expand-background 0.6s 0.5s ease-out both;
+    }
+
+    .one,
+    .two {
+      animation: appear-from-bottom 0.5s 1.3s ease-in-out both;
+    }
+
+    .two {
+      animation-delay: 1.5s;
+    }
+    .scroll-down-text,
+    .slide-left,
+    .slide-right,
+    .logo,
+    .navigation {
+      animation: appear 0.3s 2.5s linear both;
+    }
+  }
+
+  @media screen and (max-width: 1200px) {
+    .carousel-body {
+      padding-top: 4rem;
+
+      .slide-left,
+      .slide-right {
+        position: absolute;
+        bottom: 0;
+        margin: 3rem;
+      }
+
+      .slide-right {
+        right: 0;
+      }
+
+      .navigation {
+        margin: 0;
+        bottom: 0%;
+        left: 50%;
+        transition: 1s;
+        transform: rotate(-90deg) translate(50%, -10%);
+      }
+
+      .illustration,
+      .scroll-down-text {
+        display: none;
+      }
+
+      .carousel-slide {
+        flex-direction: column;
+        padding: 2rem;
+        .slide-img {
+          order: -1;
+          display: flex;
+          justify-content: center;
+          width: 100%;
+          img {
+            transform: translateX(0);
+          }
+        }
+      }
+    }
+  }
+}
+
+.carousel-2 {
+  .slide-left,
+  .slide-right {
+    position: absolute;
+    background-color: var(--primaryColor1);
+    top: 50%;
+    @media screen and (max-width: 750px) {
+      top: 100%;
+      transform: translateY(-250%);
+    }
+    margin: 2rem;
+    z-index: 2;
+
+    &:hover {
+      background-color: var(--backgroundColor1);
+    }
+  }
+
+  .slide-left {
+    left: 0;
+  }
+  .slide-right {
+    right: 0;
+  }
+
+  .team-carousel {
+    display: flex;
+    overflow-x: scroll;
+    width: 100%;
+    margin-top: 2rem;
+    position: relative;
+    scroll-snap-type: X mandatory;
+    scroll-behavior: smooth;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .carousel-slide {
+      scroll-snap-align: start;
+      display: flex;
+      justify-content: center;
+    }
+  }
+}

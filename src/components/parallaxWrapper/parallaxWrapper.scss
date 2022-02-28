@@ -26,80 +26,17 @@
     .img-overlay {
       position: absolute;
       bottom: 0;
-      width: 100%;
       z-index: -2;
       transform: translateZ(-10px) scale(2.1);
+      height: 100%;
+      width: 100%;
       object-fit: cover;
       height: calc(100% + 5rem);
     }
 
-    .ethereum,
-    .blocks,
-    .hive,
-    .bitcoin,
-    .code,
-    .briefcase,
-    .building,
-    .blockchain {
-      font-size: 4rem;
-      position: absolute;
-      animation: appear-in 0.6s linear both, float 2s linear infinite;
-      color: var(--textColor1);
-      transition: all 0.2s linear;
-      &:hover {
-        font-size: 5rem;
-      }
-    }
-
-    .ethereum {
-      top: 10%;
-      left: 10%;
-      animation-delay: 0.5s;
-    }
-
-    .blocks {
-      top: 25%;
-      right: 10%;
-      animation-delay: 0.7s;
-    }
-
-    .hive {
-      bottom: 15%;
-      left: 15%;
-      animation-delay: 0.9s;
-    }
-
-    .bitcoin {
-      bottom: 15%;
-      right: 30%;
-      animation-delay: 0.2s;
-    }
-
-    .briefcase {
-      top: 6%;
-      left: 35%;
-      animation-delay: 0.4s;
-    }
-
-    .code {
-      left: 5%;
-      animation-delay: 0.8s;
-    }
-
-    .building {
-      top: 10%;
-      right: 30%;
-      animation-delay: 0.6s;
-    }
-
-    .blockchain {
-      right: 10%;
-      bottom: 30%;
-      animation-delay: 0.1s;
-    }
-
     .img-overlay {
       background-color: var(--imgOverlay);
+      width: 100%;
     }
   }
 

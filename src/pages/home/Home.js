@@ -1,7 +1,7 @@
 import React from "react";
 import lightHero from "../../assets/light-hero.png";
 import PageDescription from "./PageDescription";
-import PageContent from "./PageContent";
+import PageContent from "./PageContent/PageContent";
 import ParallaxWrapper from "../../components/parallaxWrapper/ParallaxWrapper";
 import "./home.scss";
 

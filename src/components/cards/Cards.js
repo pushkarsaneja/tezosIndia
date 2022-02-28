@@ -1,18 +1,12 @@
-import React, { useEffect, useRef, useState } from "react";
-import { useInViewport } from "../../customHooks/customHooks";
+import React, { useRef } from "react";
+import { useAnimationTrigger } from "../../customHooks/customHooks";
 import { IconButton } from "../buttons/Buttons";
 import "./cards.scss";
 
 export const InitiativesCard = ({ icon, description, title, img, index }) => {
   const cardRef = useRef();
-  const [animationTrigger, setAnimationTrigger] = useState(false);
-  const isInViewPort = useInViewport(cardRef);
 
-  useEffect(() => {
-    if (isInViewPort) {
-      setAnimationTrigger(true);
-    }
-  }, [isInViewPort]);
+  const animationTrigger = useAnimationTrigger(cardRef);
 
   return (
     <div
@@ -31,20 +25,22 @@ export const InitiativesCard = ({ icon, description, title, img, index }) => {
   );
 };
 
-export const TeamCard = ({ img, designation, name, description }) => {
+export const TeamCard = ({
+  img,
+  designation,
+  name,
+  description,
+  className,
+  light,
+}) => {
   const cardRef = useRef();
-  const [animationTrigger, setAnimationTrigger] = useState(false);
-  const isInViewPort = useInViewport(cardRef);
-
-  useEffect(() => {
-    if (isInViewPort) {
-      setAnimationTrigger(true);
-    }
-  }, [isInViewPort]);
+  const animationTrigger = useAnimationTrigger(cardRef);
 
   return (
     <div
-      className={`team-card ${animationTrigger ? "animate" : ""}`}
+      className={`team-card ${className} ${animationTrigger ? "animate" : ""} ${
+        light ? "light" : ""
+      }`}
       ref={cardRef}
     >
       <img src={img} alt={`${name}`} />
@@ -73,16 +69,9 @@ export const VideoCard = ({ preview, heading, url, description }) => {
   );
 };
 
-export const TestimonialCard = ({ quote, by, program, index }) => {
+export const TestimonialCard = ({ quote, by, program, img, index }) => {
   const cardRef = useRef();
-  const [animationTrigger, setAnimationTrigger] = useState(false);
-  const isInViewPort = useInViewport(cardRef);
-
-  useEffect(() => {
-    if (isInViewPort) {
-      setAnimationTrigger(true);
-    }
-  }, [isInViewPort]);
+  const animationTrigger = useAnimationTrigger(cardRef);
   return (
     <div
       className={`testimonial-card ${animationTrigger ? "animate" : ""}`}
@@ -90,6 +79,7 @@ export const TestimonialCard = ({ quote, by, program, index }) => {
       ref={cardRef}
     >
       <p>{quote}</p>
+      <div className="img" style={{ backgroundImage: `url(${img})` }}></div>
       <div className="name">{by}</div>
       <div className="program">{program}</div>
     </div>

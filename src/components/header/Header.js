@@ -76,6 +76,22 @@ const Header = () => {
       {/* Side Nav Menu */}
       <nav className={`side-nav ${showSideNav ? "show" : ""}`}>
         {/* Close Side Nav Icon */}
+
+        {showSideNav && (
+          <img
+            src="https://assets-global.website-files.com/61c3148e64788314b2c58064/61c3148e647883179bc58094_pattern.svg"
+            alt=""
+            className="illustration one"
+          />
+        )}
+        {showSideNav && (
+          <img
+            src="https://assets-global.website-files.com/61c3148e64788314b2c58064/61c3148e647883179bc58094_pattern.svg"
+            alt=""
+            className="illustration two"
+          />
+        )}
+
         {showSideNav && (
           <IconButton
             className="close-side-nav"
@@ -91,11 +107,13 @@ const Header = () => {
           return (
             <Link key={key} to={`/${name.toLowerCase()}`}>
               <SideNavButton
+                className="nav-btn"
                 active={
                   name === "Home" && window.location.pathname === "/"
                     ? true
                     : name.toLowerCase() === window.location.pathname.slice(1)
                 }
+                index={key}
               >
                 {name}
               </SideNavButton>

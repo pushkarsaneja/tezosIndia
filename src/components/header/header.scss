@@ -4,7 +4,7 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1;
+  z-index: 4;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -36,7 +36,7 @@ header {
     position: absolute;
     top: 0;
     right: 0;
-    background-color: var(--primaryColor1);
+    background-color: var(--backgroundColor1);
     display: none;
     flex-direction: column;
     align-items: flex-start;
@@ -44,14 +44,45 @@ header {
     padding-top: 3rem;
     z-index: 2;
 
+    .illustration {
+      position: absolute;
+    }
+
+    .one {
+      top: -10rem;
+      right: 3rem;
+    }
+
+    .two {
+      right: 0;
+      bottom: -8rem;
+    }
+
     &.show {
-      width: 70vw;
+      width: 100vw;
+
+      .nav-btn {
+        animation: slide-from-left 0.3s ease-in-out both;
+      }
+
+      @keyframes slide-from-left {
+        from {
+          opacity: 0;
+          transform: translateX(-100px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
     }
 
     .close-side-nav {
       position: absolute;
       top: 0;
       right: 0;
+      color: var(--primaryColor1);
     }
 
     @media screen and (max-width: 900px) {

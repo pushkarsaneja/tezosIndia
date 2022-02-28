@@ -116,41 +116,36 @@
     }
   }
 
+  .meet-our-team,
   .community-testimonials {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 4rem 2rem;
-    background-color: var(--backgroundColor3);
-    @media screen and (max-width: 1100px) {
-      flex-direction: column;
+    background-color: var(--backgroundColor2);
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 7rem;
+    @media screen and (min-width: 600px) {
+      padding: 4rem 6rem;
+    }
+    h2 {
+      color: var(--primaryColor1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .view-more {
+        color: var(--primaryColor1);
+      }
     }
 
-    @media screen and (max-width: 500px) {
-      padding: 4rem 0.5rem;
+    hr {
+      background-color: var(--primaryColor1);
     }
 
-    .section-name {
+    &.animate {
       h2 {
-        font-size: 3rem;
-        font-weight: 400;
-        flex: 1;
+        animation: slide-from-bottom 0.7s 0.7s ease-in-out both;
       }
-      padding: 2rem;
-
-      .primary-button {
-        margin-left: 0;
-      }
-    }
-
-    .carousel-container {
-      flex: 2;
-      @media screen and (max-width: 1100px) {
-        width: 100%;
-      }
-      .carousel {
-        width: 100%;
-        padding: 2rem;
+      hr {
+        animation: expand-line 0.7s linear both;
       }
     }
   }
@@ -398,5 +393,14 @@
   to {
     opacity: 1;
     line-height: 4rem;
+  }
+}
+
+@keyframes expand-line {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
   }
 }

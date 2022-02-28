@@ -91,8 +91,15 @@
   cursor: pointer;
 
   &.dark {
-    color: var(--textColor4);
+    color: var(--primaryColor1);
+    -webkit-text-stroke: 0px;
   }
+}
+
+.side-nav-button {
+  -webkit-text-stroke: 1px var(--primaryColor1);
+  color: transparent;
+  font-size: 2.5rem;
 }
 
 .text-button {
@@ -105,6 +112,42 @@
   cursor: pointer;
 
   &.dark {
+    color: var(--textColor4);
+  }
+}
+
+.circular-button {
+  height: 3rem;
+  width: 3rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 50%;
+  background-color: var(--backgroundColor2);
+  outline: none;
+  border: none;
+  color: var(--textColor1);
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--backgroundColor1);
+    color: var(--textColor4);
+  }
+}
+
+.view-more-btn {
+  padding: 0.5rem;
+  background-color: var(--backgroundColor2);
+  color: var(--textColor1);
+  border: none;
+  outline: none;
+  margin-top: 0.5rem;
+  padding: 1rem 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--backgroundColor1);
     color: var(--textColor4);
   }
 }
