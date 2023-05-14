@@ -4,7 +4,7 @@ import PageLoadTransition from "./components/pageLoadTransition/PageLoadTransiti
 import BodyRefProvider from "./contexts/BodyRefProvider";
 import Consulting from "./pages/consulting/Consulting";
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Navigate,
   Route,
   Routes,
